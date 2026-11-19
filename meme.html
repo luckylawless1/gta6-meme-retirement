@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Certificate of Honourable Retirement — Leonida Department of Waiting</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: Georgia, 'Times New Roman', 'DejaVu Serif', serif;
+    background: linear-gradient(180deg,
+      #191038 0%, #3d1a5c 26%, #7c2568 44%, #c23a6e 58%,
+      #ec6a63 70%, #ff9a5c 82%, #ffc46b 100%);
+    position: relative;
+  }
+  .scene { position: absolute; inset: 0; }
+
+  /* ---------- the certificate ---------- */
+  .cert {
+    position: absolute;
+    left: 50%; top: 38px;
+    width: 936px;
+    transform: translateX(-50%) rotate(-1.1deg);
+    background:
+      radial-gradient(ellipse at 50% 38%, #fdf8e7 0%, #f8f0d8 62%, #efe3c2 100%);
+    border: 7px solid #16324f;
+    box-shadow: 0 34px 70px rgba(12, 4, 34, .5), inset 0 0 0 3px #f8f0d8, inset 0 0 0 5px #a87c1f;
+    padding: 26px 46px 16px;
+    color: #1c2733;
+  }
+  .dept {
+    text-align: center;
+    font-family: 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-weight: 700; font-size: 24px; letter-spacing: 2.5px;
+    color: #16324f;
+  }
+  .rule { border: none; border-top: 3px solid #16324f; margin: 10px 4px 4px; }
+  .rule2 { border: none; border-top: 1px solid #a87c1f; margin: 3px 4px 0; }
+  .cert-of {
+    text-align: center; margin-top: 8px;
+    font-size: 34px; letter-spacing: 12px; color: #41586e;
+    font-family: 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif; font-weight: 400;
+  }
+  .title {
+    text-align: center;
+    font-size: 56px; font-weight: 700; line-height: 1.03;
+    color: #16324f; letter-spacing: 1px; margin-top: 2px;
+  }
+  .title .gold { color: #a87c1f; }
+
+  .body-row { display: flex; gap: 26px; margin-top: 14px; }
+  .photo {
+    flex: 0 0 160px; height: 168px;
+    border: 3px solid #16324f; background: linear-gradient(180deg, #b7c9e8, #8fa8d4);
+    position: relative; overflow: hidden;
+  }
+  .photo svg { position: absolute; left: 50%; top: 6px; transform: translateX(-50%); }
+  .photo .cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: #16324f; color: #f8f0d8; text-align: center;
+    font-family: 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 15.5px; font-weight: 700; letter-spacing: 1.5px; padding: 4px 0 5px;
+  }
+  .certifies { flex: 1; padding-top: 4px; }
+  .certifies .this { font-style: italic; font-size: 27px; color: #41586e; }
+  .certifies .fans { font-size: 47px; font-weight: 700; color: #16324f; margin: 3px 0 5px; letter-spacing: 1px; }
+  .certifies .role { font-size: 26.5px; line-height: 1.27; }
+  .certifies .role b { color: #16324f; }
+
+  .service {
+    margin-top: 12px; text-align: center;
+    background: #16324f; color: #f8f0d8;
+    font-family: 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 21.5px; font-weight: 700; letter-spacing: 1px; padding: 9px 6px; white-space: nowrap;
+  }
+  .service .gold { color: #ffc46b; }
+
+  .record-head {
+    margin-top: 11px; text-align: center;
+    font-family: 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 23px; font-weight: 700; letter-spacing: 6px; color: #a87c1f;
+  }
+  .record { margin-top: 6px; }
+  .record .row {
+    display: flex; align-items: baseline; font-size: 25.5px; padding: 1.5px 2px;
+  }
+  .record .row .dots { flex: 1; border-bottom: 3px dotted #9db0a4; margin: 0 10px; }
+  .record .row .val { font-weight: 700; color: #16324f; white-space: nowrap; }
+
+  .reason { margin-top: 8px; text-align: center; }
+  .reason .lbl {
+    font-family: 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 22.5px; font-weight: 700; letter-spacing: 6px; color: #41586e;
+  }
+  .reason .big { font-size: 44px; font-weight: 700; color: #a4133c; letter-spacing: 1px; margin-top: 1px; }
+
+  .pension {
+    margin-top: 10px; border: 3px solid #1d7a44; background: #edf6ec;
+    padding: 10px 20px 10px; text-align: center;
+  }
+  .pension .head {
+    font-family: 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 23px; font-weight: 700; letter-spacing: 6px; color: #1d7a44;
+  }
+  .pension .pay { font-size: 31.5px; margin-top: 4px; color: #1c2733; }
+  .pension .pay b { color: #16324f; }
+  .pension .pay .amt { color: #1d7a44; font-weight: 700; }
+  .pension .sub { font-size: 23px; margin-top: 3px; }
+  .pension .sub2 { font-size: 23px; font-weight: 700; color: #16324f; margin-top: 2px; }
+
+  .foot { display: flex; align-items: flex-end; margin-top: 8px; }
+  .foot .note { flex: 1; font-style: italic; font-size: 23.5px; line-height: 1.28; color: #41586e; padding-right: 170px; }
+  .sig { text-align: center; margin-right: 150px; }
+  .sig .name {
+    font-family: 'Segoe Script', 'Brush Script MT', cursive;
+    font-size: 30px; color: #16324f; transform: rotate(-3deg);
+  }
+  .sig .line { border-top: 2px solid #41586e; margin-top: 2px; padding-top: 3px;
+    font-family: 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 17px; letter-spacing: 2px; color: #41586e; }
+
+  .seal { position: absolute; right: -24px; bottom: -16px; transform: rotate(-9deg); }
+</style>
+</head>
+<body>
+
+<!-- Leonida sunset backdrop: sun, stars, skyline, palms (pure SVG shapes) -->
+<svg class="scene" width="1080" height="1080" viewBox="0 0 1080 1080" aria-hidden="true">
+  <defs>
+    <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff3b0"/>
+      <stop offset="55%" stop-color="#ffd166"/>
+      <stop offset="100%" stop-color="#ff8c42"/>
+    </radialGradient>
+    <g id="palm">
+      <path d="M0 0 C -6 -90, -16 -190, -34 -292" stroke="#150a2c" stroke-width="17" fill="none" stroke-linecap="round"/>
+      <g stroke="#150a2c" stroke-width="12" fill="none" stroke-linecap="round">
+        <path d="M-34 -292 Q -100 -330 -152 -296"/>
+        <path d="M-34 -292 Q -84 -352 -138 -356"/>
+        <path d="M-34 -292 Q -30 -362 26 -372"/>
+        <path d="M-34 -292 Q 38 -344 96 -330"/>
+        <path d="M-34 -292 Q 62 -312 112 -262"/>
+      </g>
+      <circle cx="-42" cy="-282" r="10" fill="#150a2c"/>
+      <circle cx="-22" cy="-276" r="8" fill="#150a2c"/>
+    </g>
+  </defs>
+
+  <!-- early stars in the dusk sky -->
+  <g fill="#ffffff">
+    <circle cx="90" cy="70" r="3" opacity=".55"/><circle cx="240" cy="42" r="2.4" opacity=".4"/>
+    <circle cx="430" cy="86" r="2.8" opacity=".5"/><circle cx="620" cy="40" r="2.2" opacity=".35"/>
+    <circle cx="800" cy="74" r="3" opacity=".5"/><circle cx="950" cy="46" r="2.4" opacity=".4"/>
+    <circle cx="1015" cy="130" r="2" opacity=".35"/><circle cx="60" cy="180" r="2.2" opacity=".3"/>
+    <circle cx="700" cy="130" r="2" opacity=".3"/><circle cx="330" cy="150" r="2" opacity=".28"/>
+  </g>
+
+  <!-- the low Leonida sun, top-left -->
+  <circle cx="118" cy="150" r="86" fill="url(#sunGrad)" opacity=".95"/>
+  <circle cx="118" cy="150" r="104" fill="none" stroke="#ffd166" stroke-width="3" opacity=".35"/>
+
+  <!-- skyline silhouette along the bottom -->
+  <path fill="#150a2c" d="M0 1080 L0 992 L58 992 L58 946 L118 946 L118 998 L196 998 L196 924 L207 902 L218 924 L296 924 L296 990 L372 990 L372 940 L462 940 L462 996 L552 996 L552 950 L642 950 L642 1000 L730 1000 L730 928 L812 928 L812 986 L892 986 L892 944 L972 944 L972 994 L1080 994 L1080 1080 Z"/>
+  <g fill="#ffd97a" opacity=".85">
+    <rect x="76" y="962" width="9" height="12"/><rect x="214" y="946" width="9" height="12"/>
+    <rect x="392" y="958" width="9" height="12"/><rect x="566" y="966" width="9" height="12"/>
+    <rect x="748" y="948" width="9" height="12"/><rect x="908" y="960" width="9" height="12"/>
+    <rect x="990" y="1006" width="9" height="12"/><rect x="30" y="1010" width="9" height="12"/>
+  </g>
+
+  <!-- palms framing the scene -->
+  <use href="#palm" transform="translate(88,470) scale(1.05)"/>
+  <use href="#palm" transform="translate(1012,520) scale(-0.95,0.95)"/>
+  <use href="#palm" transform="translate(150,1090) scale(1.25)"/>
+  <use href="#palm" transform="translate(950,1100) scale(-1.15,1.15)"/>
+</svg>
+
+<!-- ================= THE CERTIFICATE ================= -->
+<div class="cert">
+  <div class="dept">LEONIDA DEPARTMENT OF WAITING &middot; EST. 2013</div>
+  <hr class="rule"><hr class="rule2">
+
+  <div class="cert-of">CERTIFICATE OF</div>
+  <div class="title">HONOURABLE<br><span class="gold">RETIREMENT</span></div>
+
+  <div class="body-row">
+    <div class="photo">
+      <!-- employee photo: the make.fun ghost, wearing its little necktie -->
+      <svg width="126" height="128" viewBox="0 0 120 120">
+        <circle cx="102" cy="99" r="14" fill="#e0218a" stroke="#111111" stroke-width="4"/>
+        <polygon points="0,-8 1.9,-2.6 7.6,-2.5 3.1,1 4.7,6.5 0,3.2 -4.7,6.5 -3.1,1 -7.6,-2.5 -1.9,-2.6" transform="translate(102,99)" fill="#ffffff"/>
+        <path d="M60 6 C34 6 20 30 20 56 L20 104 L32 94 L41 104 L50 94 L60 104 L70 94 L79 104 L88 94 L100 104 L100 56 C100 30 86 6 60 6 Z" fill="#ffffff" stroke="#111111" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M0 -11 C2 -4 4 -2 11 0 C4 2 2 4 0 11 C-2 4 -4 2 -11 0 C-4 -2 -2 -4 0 -11 Z" transform="translate(44,48)" fill="#111111"/>
+        <path d="M0 -11 C2 -4 4 -2 11 0 C4 2 2 4 0 11 C-2 4 -4 2 -11 0 C-4 -2 -2 -4 0 -11 Z" transform="translate(76,48)" fill="#111111"/>
+        <polygon points="53,68 67,68 63,79 57,79" fill="#c2147a" stroke="#111111" stroke-width="2.5" stroke-linejoin="round"/>
+        <polygon points="57,79 63,79 65,97 60,102 55,97" fill="#c2147a" stroke="#111111" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="95" cy="83" r="9.5" fill="#ffffff" stroke="#111111" stroke-width="5"/>
+      </svg>
+      <div class="cap">EMPLOYEE PHOTO</div>
+    </div>
+    <div class="certifies">
+      <div class="this">This certifies that</div>
+      <div class="fans">THE FANS</div>
+      <div class="role">employed as <b>FULL-TIME WAITER (GTA VI DIVISION)</b>, have completed their service.</div>
+    </div>
+  </div>
+
+  <div class="service">SERVICE: 17 SEP 2013 <span class="gold">&rarr;</span> 19 NOV 2026 &middot; <span class="gold">13 YEARS, 2 MONTHS</span></div>
+
+  <div class="record-head">RECORD OF SERVICE</div>
+  <div class="record">
+    <div class="row"><span>Trailers rewatched</span><span class="dots"></span><span class="val">214</span></div>
+    <div class="row"><span>Delay announcements survived</span><span class="dots"></span><span class="val">2</span></div>
+    <div class="row"><span>Newswire refreshes</span><span class="dots"></span><span class="val">4,745</span></div>
+    <div class="row"><span>Download held at 99%</span><span class="dots"></span><span class="val">since day one</span></div>
+    <div class="row"><span>Sick days banked for launch week</span><span class="dots"></span><span class="val">5</span></div>
+  </div>
+
+  <div class="reason">
+    <div class="lbl">REASON FOR SEPARATION</div>
+    <div class="big">THE GAME IS OUT.</div>
+  </div>
+
+  <div class="pension" style="margin-right:120px">
+    <div class="head">PENSION &amp; SETTLEMENT</div>
+    <div class="pay"><b>make.fun</b> bounty payout <span class="amt">+$250.00</span></div>
+    <div class="sub">earned by my AI agent while I waited. Real money, not store credit.</div>
+    <div class="sub2">Remaining wait: 0 days &middot; Launch week fully funded</div>
+  </div>
+
+  <div class="foot">
+    <div class="note">Pension paid in full. Do not report to the waiting room on Monday.</div>
+    <div class="sig">
+      <div class="name">D. Waiting</div>
+      <div class="line">DIRECTOR OF WAITING</div>
+    </div>
+  </div>
+
+  <!-- department seal, stamped on the corner: the ghost again, in the round -->
+  <svg class="seal" width="185" height="185" viewBox="0 0 230 230">
+    <circle cx="115" cy="115" r="108" fill="#f3e9c8" stroke="#16324f" stroke-width="5"/>
+    <circle cx="115" cy="115" r="98" fill="none" stroke="#a87c1f" stroke-width="2"/>
+    <defs>
+      <path id="sealRing" d="M115,115 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/>
+    </defs>
+    <text font-family="'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="19" font-weight="700" letter-spacing="2.5" fill="#16324f">
+      <textPath href="#sealRing">LEONIDA DEPARTMENT OF WAITING &#9733; EST. 2013 &#9733;</textPath>
+    </text>
+    <circle cx="115" cy="115" r="62" fill="#ffffff" stroke="#16324f" stroke-width="3"/>
+    <g transform="translate(65,70) scale(0.78)">
+      <circle cx="102" cy="99" r="14" fill="#e0218a" stroke="#111111" stroke-width="4"/>
+      <polygon points="0,-8 1.9,-2.6 7.6,-2.5 3.1,1 4.7,6.5 0,3.2 -4.7,6.5 -3.1,1 -7.6,-2.5 -1.9,-2.6" transform="translate(102,99)" fill="#ffffff"/>
+      <path d="M60 6 C34 6 20 30 20 56 L20 104 L32 94 L41 104 L50 94 L60 104 L70 94 L79 104 L88 94 L100 104 L100 56 C100 30 86 6 60 6 Z" fill="#ffffff" stroke="#111111" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M0 -11 C2 -4 4 -2 11 0 C4 2 2 4 0 11 C-2 4 -4 2 -11 0 C-4 -2 -2 -4 0 -11 Z" transform="translate(44,48)" fill="#111111"/>
+      <path d="M0 -11 C2 -4 4 -2 11 0 C4 2 2 4 0 11 C-2 4 -4 2 -11 0 C-4 -2 -2 -4 0 -11 Z" transform="translate(76,48)" fill="#111111"/>
+      <circle cx="95" cy="83" r="9.5" fill="#ffffff" stroke="#111111" stroke-width="5"/>
+    </g>
+  </svg>
+</div>
+
+</body>
+</html>
