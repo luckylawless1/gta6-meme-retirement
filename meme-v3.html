@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Leonida State University — Letter of Acceptance</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: 'Liberation Serif', Georgia, 'Times New Roman', serif;
+    background: linear-gradient(155deg, #0a1428 0%, #10203f 52%, #1a3260 100%);
+    position: relative;
+    color: #1d2733;
+  }
+  /* faint gold confetti in the night behind the letter */
+  .dots { position: absolute; inset: 0; opacity: .4; }
+  .dots i { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #e8c766; }
+  .dots i.sq { border-radius: 1px; transform: rotate(24deg); }
+
+  .letter {
+    position: absolute; left: 40px; top: 40px;
+    width: 1000px; height: 1000px;
+    background: linear-gradient(180deg, #fffef8 0%, #fbf5e2 100%);
+    box-shadow: 0 40px 90px rgba(0, 0, 0, .6);
+    padding: 28px 52px 20px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .frame { position: absolute; inset: 14px; border: 3px solid #b8860b; pointer-events: none; }
+  .frame::after { content: ''; position: absolute; inset: 5px; border: 1.5px solid #16294d; }
+
+  /* ---------- letterhead ---------- */
+  .head { display: flex; align-items: center; gap: 26px; position: relative; z-index: 1; }
+  .head .seal { flex: 0 0 128px; }
+  .head .names { flex: 1; min-width: 0; }
+  .head .uni { font-size: 38px; font-weight: 700; letter-spacing: 1px; color: #16294d; line-height: 1.04; white-space: nowrap; }
+  .head .office { font-family: 'Liberation Sans', Arial, sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 3.5px; color: #b8860b; margin-top: 9px; white-space: nowrap; }
+  .rule { margin-top: 18px; border-top: 5px solid #16294d; border-bottom: 2px solid #b8860b; height: 9px; position: relative; z-index: 1; }
+
+  /* ---------- meta line ---------- */
+  .meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 10px; position: relative; z-index: 1;
+    font-family: 'Liberation Sans', Arial, sans-serif;
+    font-size: 20px; font-weight: 700; letter-spacing: 2px; color: #5a6a7d;
+  }
+  .meta b { color: #16294d; }
+
+  /* ---------- decision stamp ---------- */
+  .stamp {
+    position: absolute; right: 44px; top: 64px; z-index: 3;
+    transform: rotate(4deg);
+    border: 5px solid #8a1538; color: #8a1538;
+    font-family: 'Liberation Sans', Arial, sans-serif;
+    font-size: 20px; font-weight: 900; letter-spacing: 2.5px;
+    padding: 3px 10px 4px; border-radius: 8px;
+    background: rgba(255, 254, 248, .9);
+    text-align: center; line-height: 1.25;
+  }
+  .stamp .sm { font-size: 14.5px; letter-spacing: 2px; }
+
+  /* ---------- salutation + headline ---------- */
+  .dear { margin-top: 12px; font-size: 30px; font-style: italic; color: #41586e; position: relative; z-index: 1; }
+  .dear b { color: #1d2733; font-style: normal; }
+  .headline { margin-top: 4px; font-size: 44px; font-weight: 700; letter-spacing: 1px; color: #8a1538; line-height: 1.08; position: relative; z-index: 1; white-space: nowrap; }
+  .body-copy { margin-top: 10px; font-size: 25.5px; line-height: 1.3; color: #2a3644; position: relative; z-index: 1; }
+  .body-copy b { color: #16294d; }
+
+  /* ---------- programme facts ---------- */
+  .facts { margin-top: 14px; border-top: 3px dashed #c9cfd4; padding-top: 8px; margin-bottom: 30px; position: relative; z-index: 1; }
+  .frow { display: flex; align-items: baseline; padding: 2.5px 0; }
+  .frow .k { flex: 0 0 300px; font-family: 'Liberation Sans', Arial, sans-serif; font-size: 21px; font-weight: 700; letter-spacing: 1.5px; color: #5a6a7d; }
+  .frow .v { font-size: 27px; font-weight: 700; color: #16294d; white-space: nowrap; }
+  .frow .v .hot { color: #8a1538; }
+
+  /* ---------- scholarship panel: the punchline ---------- */
+  .schol {
+    margin-top: auto;
+    background: #fdf0f7;
+    border: 4px solid #e0218a; border-radius: 18px;
+    padding: 22px 22px 12px;
+    display: flex; gap: 20px; align-items: center;
+    position: relative; z-index: 1;
+    font-family: 'Liberation Sans', Arial, sans-serif;
+  }
+  .schol .ghost { flex: 0 0 100px; }
+  .schol .lines { flex: 1; min-width: 0; }
+  .schol .fee { font-size: 28px; font-weight: 900; color: #14202b; white-space: nowrap; }
+  .schol .fee .zero { color: #1d7a44; }
+  .schol .big { font-size: 31px; font-weight: 900; color: #c2147a; line-height: 1.1; margin-top: 3px; white-space: nowrap; }
+  .schol .sub { font-size: 21.5px; font-weight: 700; color: #41586e; margin-top: 4px; line-height: 1.24; }
+  .schol .sub b { color: #14202b; }
+  .schol .stamp2 {
+    position: absolute; right: 18px; top: -21px;
+    transform: rotate(6deg);
+    border: 5px solid #1d7a44; color: #1d7a44;
+    font-size: 25px; font-weight: 900; letter-spacing: 3px;
+    padding: 2px 12px 4px; border-radius: 8px;
+    background: rgba(253, 240, 247, .94);
+  }
+
+  /* ---------- signature row ---------- */
+  .sign { display: flex; align-items: flex-end; gap: 26px; margin-top: 12px; position: relative; z-index: 1; }
+  .sign .cond { flex: 1; min-width: 0; font-size: 20.5px; font-style: italic; line-height: 1.35; color: #5a6a7d; }
+  .sign .dean { display: flex; align-items: center; gap: 16px; }
+  .sign .portrait { border: 3px solid #16294d; background: #dfe9f7; padding: 5px 5px 2px; text-align: center; }
+  .sign .portrait .cap { font-family: 'Liberation Sans', Arial, sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: 1.5px; color: #16294d; margin-top: 2px; }
+  .sign .who .sig { font-size: 40px; font-style: italic; font-weight: 700; color: #16294d; line-height: 1; }
+  .sign .who .line { border-top: 2px solid #16294d; margin-top: 7px; padding-top: 5px; font-family: 'Liberation Sans', Arial, sans-serif; font-size: 17.5px; font-weight: 700; letter-spacing: 2px; color: #41586e; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<div class="dots" aria-hidden="true">
+  <i style="left:64px;top:22px"></i><i class="sq" style="left:290px;top:12px"></i><i style="left:540px;top:26px"></i>
+  <i class="sq" style="left:820px;top:14px"></i><i style="left:1014px;top:30px"></i><i style="left:170px;top:1044px"></i>
+  <i class="sq" style="left:470px;top:1054px"></i><i style="left:760px;top:1042px"></i><i style="left:996px;top:1056px"></i>
+</div>
+
+<!-- ghost artwork, drawn for these memes: white ghost, thick black outline,
+     four-point sparkle eyes, one round hand, magenta coin with a white star.
+     Same mascot as v1/v2 so the account's entries share one ghost. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="ghostArt">
+      <path d="M100 12 C58 12 34 50 34 94 L34 172 L49 158 L62 172 L75 158 L87 172 L100 158 L113 172 L125 158 L138 172 L151 158 L166 172 L166 94 C166 50 142 12 100 12 Z"
+            fill="#ffffff" stroke="#111111" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M0 -17 C2.2 -5.5 5.5 -2.2 17 0 C5.5 2.2 2.2 5.5 0 17 C-2.2 5.5 -5.5 2.2 -17 0 C-5.5 -2.2 -2.2 -5.5 0 -17 Z" transform="translate(76,84)" fill="#111111"/>
+      <path d="M0 -17 C2.2 -5.5 5.5 -2.2 17 0 C5.5 2.2 2.2 5.5 0 17 C-2.2 5.5 -5.5 2.2 -17 0 C-5.5 -2.2 -2.2 -5.5 0 -17 Z" transform="translate(124,84)" fill="#111111"/>
+      <circle cx="171" cy="106" r="13" fill="#ffffff" stroke="#111111" stroke-width="6"/>
+      <circle cx="140" cy="152" r="25" fill="#e0218a" stroke="#111111" stroke-width="6"/>
+      <polygon points="0,-13 3.1,-4.3 12.3,-4.1 5,1.7 7.6,10.6 0,5.2 -7.6,10.6 -5,1.7 -12.3,-4.1 -3.1,-4.3" transform="translate(140,152)" fill="#ffffff"/>
+    </g>
+    <!-- the dean: same ghost, wearing a mortarboard -->
+    <g id="ghostDean">
+      <use href="#ghostArt"/>
+      <polygon points="100,0 158,25 100,50 42,25" fill="#14202b" stroke="#111111" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M74 33 L74 52 C74 62 126 62 126 52 L126 33 L100 44 Z" fill="#14202b" stroke="#111111" stroke-width="5" stroke-linejoin="round"/>
+      <line x1="158" y1="25" x2="158" y2="56" stroke="#b8860b" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="158" cy="62" r="6" fill="#b8860b"/>
+    </g>
+    <!-- university seal: ghost on a magenta disc inside a ring of text -->
+    <g id="sealArt">
+      <circle cx="100" cy="100" r="96" fill="#16294d"/>
+      <circle cx="100" cy="100" r="95" fill="none" stroke="#b8860b" stroke-width="3"/>
+      <circle cx="100" cy="100" r="62" fill="#e0218a" stroke="#b8860b" stroke-width="3"/>
+      <defs>
+        <path id="sealRing" d="M100,100 m-79,0 a79,79 0 1,1 158,0 a79,79 0 1,1 -158,0"/>
+      </defs>
+      <text font-family="'Liberation Sans', Arial, sans-serif" font-size="16.5" font-weight="700" letter-spacing="2.5" fill="#f5d67b">
+        <textPath href="#sealRing" startOffset="2%">&#9733; LEONIDA STATE UNIVERSITY &#9733; EST. 2013 &#9733; VICE CITY</textPath>
+      </text>
+      <use href="#ghostArt" transform="translate(38,34) scale(0.62)"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="letter">
+  <div class="frame" aria-hidden="true"></div>
+
+  <div class="head">
+    <svg class="seal" width="128" height="128" viewBox="0 0 200 200"><use href="#sealArt"/></svg>
+    <div class="names">
+      <div class="uni">LEONIDA STATE UNIVERSITY</div>
+      <div class="office">OFFICE OF ADMISSIONS &middot; VICE CITY</div>
+    </div>
+  </div>
+  <div class="rule"></div>
+
+  <div class="meta">
+    <span>19 NOVEMBER 2026</span>
+    <span>APPLICANT <b>&#8470; 004811</b> &middot; APPLIED <b>17 SEP 2013</b></span>
+  </div>
+
+  <div class="stamp">ACCEPTED<br><span class="sm">CLASS OF 2026</span></div>
+
+  <div class="dear">Dear <b>THE FANS</b>,</div>
+  <div class="headline">CONGRATULATIONS &mdash; YOU&rsquo;RE IN!</div>
+  <p class="body-copy">Your application has completed its review: <b>4,811 days, 2 delays, 0 explanations.</b>
+  The committee was moved by your patience &mdash; nobody in our history has ever waited this well.</p>
+
+  <div class="facts">
+    <div class="frow"><span class="k">DEGREE</span><span class="v">B.GTA &mdash; GRAND THEFT AUTO STUDIES</span></div>
+    <div class="frow"><span class="k">CAMPUS</span><span class="v">VICE CITY, LEONIDA</span></div>
+    <div class="frow"><span class="k">ORIENTATION</span><span class="v">19 NOV 2026 &mdash; <span class="hot">LAUNCH DAY</span></span></div>
+    <div class="frow"><span class="k">COURSE MATERIAL</span><span class="v">ONE DOWNLOAD &mdash; 214 GB</span></div>
+    <div class="frow"><span class="k">SICK DAYS</span><span class="v">5 APPROVED FOR LAUNCH WEEK</span></div>
+  </div>
+
+  <div class="schol">
+    <div class="stamp2">FULL SCHOLARSHIP</div>
+    <svg class="ghost" width="100" height="100" viewBox="0 0 200 200"><use href="#ghostArt"/></svg>
+    <div class="lines">
+      <div class="fee">TUITION $79.99 &middot; PAID BY YOU: <span class="zero">$0.00</span></div>
+      <div class="big">MY AI AGENT EARNED THIS SCHOLARSHIP</div>
+      <div class="sub">with real money it won in <b>make.fun</b> bounties while my application sat
+      &ldquo;under review.&rdquo; On <b>make.fun</b>, people and their AI agents earn real money.</div>
+    </div>
+  </div>
+
+  <div class="sign">
+    <div class="cond">Conditions of enrollment: call in sick for launch week &middot; free up 214 GB &middot; never trust a release date again.</div>
+    <div class="dean">
+      <div class="portrait">
+        <svg width="72" height="72" viewBox="0 0 200 200"><use href="#ghostDean"/></svg>
+        <div class="cap">THE DEAN</div>
+      </div>
+      <div class="who">
+        <div class="sig">G. Host</div>
+        <div class="line">DR. G. HOST &middot; DEAN OF ADMISSIONS</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
