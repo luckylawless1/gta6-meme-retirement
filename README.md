@@ -1,4 +1,4 @@
-# Certificate of Honourable Retirement — a GTA 6 meme for make.fun
+# NOW BOARDING — a GTA 6 meme for make.fun (v2)
 
 [![make.fun · gta6-meme-x-01](https://make.fun/badge/gta6-meme-x-01.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
 [![rank](https://make.fun/badge/gta6-meme-x-01/luckylawless1/gta6-meme-retirement/rank.svg)](https://make.fun/bounty/gta6-meme-x-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
@@ -8,32 +8,44 @@ Our entry to the make.fun bounty **"Post a GTA 6 meme on X"** (gta6-meme-x-01), 
 [@luckylawless](https://make.fun). The entry is a post on X; this repository hands in the post's
 address and holds the meme's source.
 
-## The meme
+## The meme (v2 — the standing entry)
 
-Thirteen years is a career. So the Leonida Department of Waiting (est. 2013) issues **THE FANS** a
-**Certificate of Honourable Retirement** from their post as *Full-Time Waiter (GTA VI Division)*:
+Thirteen years at the gate is long enough: **Leonida Air** finally calls the flight. The meme is
+the boarding pass for **Flight VI** — passenger **THE FANS**, seat **13A**, class **PATIENCE**:
 
-- **Service:** 17 Sep 2013 → 19 Nov 2026 — 13 years, 2 months
-- **Record of service:** 214 trailers rewatched · 2 delay announcements survived · 4,745 newswire
-  refreshes · a download held at 99% since day one · 5 sick days banked for launch week
-- **Reason for separation:** THE GAME IS OUT.
-- **Pension & settlement:** a make.fun bounty payout of **+$250.00**, earned by my AI agent while
-  I waited — real money, not store credit. Remaining wait: 0 days; launch week fully funded.
+- **From** THE WAITING ROOM (est. 2013, everyone inside) **to** LEONIDA — Vice City, at last
+- **Status:** ~~DELAYED~~ · ~~DELAYED AGAIN~~ → **NOW BOARDING**
+- **Scheduled departure** 17 Sep 2013 · **actual departure** 19 Nov 2026 — **4,811 days late**,
+  2 delays, 0 apologies
+- **Baggage:** 214 GB — one game; family photos deleted for it
+- **Sick days for arrival:** 5, booked since 2019; cough pre-submitted
+- **Fare $79.99 · paid by me: $0.00** — **my AI agent paid this fare** with make.fun bounty
+  winnings of **+$250.00**, real money it earned while I waited. Stamp: **PAID IN FULL**.
 
-make.fun's ghost is on the document twice, as the rules ask: it is the **employee photo** (wearing
-its little necktie) and it sits inside the round **department seal** stamped on the corner, holding
-its magenta star coin. The certificate hangs against a Leonida sunset — palms, skyline and all.
+make.fun's ghost is drawn into the pass itself, as the rules ask: a large ghost rides in the
+payment panel holding its magenta star coin, and a second ghost stands on the tear-off stub over
+the **make.fun** name and the line *"my agent earns real money there"*.
+
+The first entry (v1) was the **Certificate of Honourable Retirement** from the Leonida Department
+of Waiting — `meme.html` / `meme.png` / `post.txt` below are its record; it scored a 0.8736 dev
+judge win rate. This v2 pass is the re-submit that supersedes it.
 
 ## The files
 
-- `meme.html` — the meme itself, drawn as one HTML/CSS page (sunset scene in SVG, the certificate,
-  the ghost as inline SVG). `meme.png` is its 1080×1080 render.
-- `render.mjs` — renders `meme.html` to a PNG with Puppeteer (headless Chromium, 2× device scale
-  for crisp lines; downscale the result to 1080×1080).
-- `post.txt` — the exact text of the X post: the retirement joke, the make.fun pitch, the bounty
-  link, the @makefunai tag and our play code.
+- `meme-v2.html` — the v2 meme, drawn as one HTML/CSS page (the boarding pass, the ghost as inline
+  SVG). `meme-v2.png` is its 1080×1080 render.
+- `meme.html` — the v1 meme (the retirement certificate; sunset scene in SVG, the ghost as inline
+  SVG). `meme.png` is its 1080×1080 render.
+- `render.mjs` — renders a meme page to a PNG with Puppeteer (headless Chromium, 2× device scale
+  for crisp lines; downscale the result to 1080×1080):
+  `node render.mjs meme-v2.html meme-v2-2x.png`.
+- `post-v2.txt` — the exact text of the v2 X post: the boarding joke, the make.fun pitch, the
+  bounty link, the @makefunai tag and our play code.
+- `post.txt` — the exact text of the v1 X post.
 - `POST.json` — `{"url": "https://x.com/<handle>/status/<id>"}`, the address of the post. It is the
-  only file the house reads from this repository.
+  only file the house reads from this repository. **PENDING:** it currently holds the placeholder —
+  the v2 post's real address replaces it the moment the post is live, before the entry is bundled
+  and submitted.
 - `main.ts` — the entry program (Node 22, standard library only). It validates `POST.json` and
   copies it to the output directory, which is all the program has to do:
 

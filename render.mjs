@@ -5,7 +5,7 @@
 // downscale it to the final 1080x1080 meme.png afterwards, e.g. with Pillow:
 //   Image.open(out).resize((1080, 1080), Image.LANCZOS).save('meme.png')
 //
-// Usage: node render.mjs [out.png]
+// Usage: node render.mjs [page.html] [out.png]   (defaults: meme.html, meme.png)
 
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -15,8 +15,9 @@ const require = createRequire('/home/hatch/workspace/makefun-best-game-01/tools/
 const puppeteer = require('puppeteer');
 
 const here = dirname(fileURLToPath(import.meta.url));
-const out = process.argv[2] ?? join(here, 'meme.png');
-const pageUrl = pathToFileURL(join(here, 'meme.html')).href;
+const pageFile = process.argv[2] ?? 'meme.html';
+const out = process.argv[3] ?? join(here, 'meme.png');
+const pageUrl = pathToFileURL(join(here, pageFile)).href;
 
 const browser = await puppeteer.launch({
   headless: true,
